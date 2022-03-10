@@ -1,0 +1,4 @@
+com\xunxing\scrm\wx\config\WxCpConfig.class
+com\xunxing\scrm\wx\service\MultiWxCpServiceImpl.class
+com\xunxing\scrm\wx\config\ProxyConfigProperties.class
+META-INF\spring-configuration-metadata.json
