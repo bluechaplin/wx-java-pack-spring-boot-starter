@@ -1,7 +1,6 @@
 package com.xunxing.scrm.wx.service;
 
 import me.chanjar.weixin.common.bean.WxAccessToken;
-import me.chanjar.weixin.common.bean.WxJsapiSignature;
 import me.chanjar.weixin.common.enums.WxType;
 import me.chanjar.weixin.common.error.WxError;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -23,6 +22,7 @@ import java.util.concurrent.locks.Lock;
 
 public class MultiWxCpServiceImpl extends WxCpServiceApacheHttpClientImpl {
 
+    @Override
     public WxCpAgentJsapiSignature createAgentJsapiSignature(String url) throws WxErrorException {
         long timestamp = System.currentTimeMillis() / 1000L;
         String noncestr = RandomUtils.getRandomStr();

@@ -1,19 +1,22 @@
 package com.xunxing.scrm.wx.config;
 
+import com.xunxing.scrm.wx.propertity.ProxyConfigProperties;
 import com.xunxing.scrm.wx.service.MultiWxCpServiceImpl;
 import me.chanjar.weixin.cp.config.WxCpConfigStorage;
 import me.chanjar.weixin.cp.config.impl.WxCpDefaultConfigImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 企业微信能力
+ *
+ * @author matt
+ * @since 2022/3/11
+ */
 @Configuration
 @EnableConfigurationProperties(ProxyConfigProperties.class)
 public class WxCpConfig {
-
-    @Autowired
-    private ProxyConfigProperties proxyConfigProperties;
 
     /**
      * 通讯录
@@ -21,7 +24,7 @@ public class WxCpConfig {
      * @return
      */
     @Bean
-    public MultiWxCpServiceImpl contactWxCpService() {
+    public MultiWxCpServiceImpl contactWxCpService(ProxyConfigProperties proxyConfigProperties) {
         MultiWxCpServiceImpl wxCpService = new MultiWxCpServiceImpl();
         WxCpConfigStorage wxCpConfigStorage = new WxCpDefaultConfigImpl();
         wxCpConfigStorage.setBaseApiUrl(proxyConfigProperties.getWxCpContactAppUrl());
@@ -35,7 +38,7 @@ public class WxCpConfig {
      * @return
      */
     @Bean
-    public MultiWxCpServiceImpl customerWxCpService() {
+    public MultiWxCpServiceImpl customerWxCpService(ProxyConfigProperties proxyConfigProperties) {
         MultiWxCpServiceImpl wxCpService = new MultiWxCpServiceImpl();
         WxCpConfigStorage wxCpConfigStorage = new WxCpDefaultConfigImpl();
         wxCpConfigStorage.setBaseApiUrl(proxyConfigProperties.getWxCpCustomerAppUrl());
@@ -49,7 +52,7 @@ public class WxCpConfig {
      * @return
      */
     @Bean
-    public MultiWxCpServiceImpl selfBuildWxCpService() {
+    public MultiWxCpServiceImpl selfBuildWxCpService(ProxyConfigProperties proxyConfigProperties) {
         MultiWxCpServiceImpl wxCpService = new MultiWxCpServiceImpl();
         WxCpConfigStorage wxCpConfigStorage = new WxCpDefaultConfigImpl();
         wxCpConfigStorage.setBaseApiUrl(proxyConfigProperties.getWxCpSelfBuildAppUrl());
@@ -63,7 +66,7 @@ public class WxCpConfig {
      * @return
      */
     @Bean
-    public MultiWxCpServiceImpl customizedWxCpService() {
+    public MultiWxCpServiceImpl customizedWxCpService(ProxyConfigProperties proxyConfigProperties) {
         MultiWxCpServiceImpl wxCpService = new MultiWxCpServiceImpl();
         WxCpConfigStorage wxCpConfigStorage = new WxCpDefaultConfigImpl();
         wxCpConfigStorage.setBaseApiUrl(proxyConfigProperties.getWxCpCustomizedAppUrl());
@@ -77,7 +80,7 @@ public class WxCpConfig {
      * @return
      */
     @Bean
-    public MultiWxCpServiceImpl msgauditWxCpService() {
+    public MultiWxCpServiceImpl msgauditWxCpService(ProxyConfigProperties proxyConfigProperties) {
         MultiWxCpServiceImpl wxCpService = new MultiWxCpServiceImpl();
         WxCpConfigStorage wxCpConfigStorage = new WxCpDefaultConfigImpl();
         wxCpConfigStorage.setBaseApiUrl(proxyConfigProperties.getWxCpMsgAuditAppUrl());

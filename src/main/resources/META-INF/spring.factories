@@ -1,2 +1,5 @@
-#-------starter×Ô¶¯×°Åä---------
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xunxing.scrm.wx.config.WxCpConfig
+#-------starter---------
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xunxing.scrm.wx.config.WxCpConfig,\
+  com.xunxing.scrm.wx.config.WxCpTpConfig,\
+  com.xunxing.scrm.wx.config.WxMiniappConfig, \
+  com.xunxing.scrm.wx.config.WxOpenConfig, com.xunxing.scrm.wx.config.WxMpConfig
